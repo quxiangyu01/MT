@@ -1,0 +1,15 @@
+
+mpython:S117"QRename this parameter "V_max" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÖÒÜùÿÿÿÿ
+tpython:S117j"XRename this local variable "V_total" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ§€¸øÿÿÿÿ
+lpython:S1542"ORename function "packing1D" to match the regular expression ^[a-z_][a-z0-9_]*$.(ôï©Şüÿÿÿÿ
+Hpython:S1481j"+Remove the unused local variable "V_total".(Ÿ§€¸øÿÿÿÿ
+qpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(ôï©Şüÿÿÿÿ
+Zpython:S112`">Replace this generic exception class with a more specific one.(¯èÄ§ıÿÿÿÿ
+ºpython:S1515v"œAdd a parameter to the parent lambda function and use variable "weight" as its default value; The value of "weight" might change at the next loop iteration.(ÚËô„øÿÿÿÿ
+npython:S117¦"QRename this parameter "V_max" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÖÒÜùÿÿÿÿ
+ppython:S117Œ"XRename this local variable "V_total" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨°Ê
+hpython:S1542¥"ORename function "packing2D" to match the regular expression ^[a-z_][a-z0-9_]*$.(«…—Ô
+Dpython:S1481Œ"+Remove the unused local variable "V_total".(¨°Ê
+mpython:S3776¥"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(«…—Ô
+[python:S112‚">Replace this generic exception class with a more specific one.(¯èÄ§ıÿÿÿÿ
+¶python:S1515™"œAdd a parameter to the parent lambda function and use variable "weight" as its default value; The value of "weight" might change at the next loop iteration.(Îû¿

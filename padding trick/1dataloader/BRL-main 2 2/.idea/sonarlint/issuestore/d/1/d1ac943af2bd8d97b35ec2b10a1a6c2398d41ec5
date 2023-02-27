@@ -1,0 +1,8 @@
+
+Gpython:S1066<"/Merge this if statement with the enclosing one.(çãª˜
+6python:S125)"Remove this commented out code.(õ•½
+6python:S125W"Remove this commented out code.(Ëž´
+=python:S1481}"%Remove the unused local variable "i".(œÿÿÁ
+jpython:S1226¬"LIntroduce a new variable or use its initial value before reassigning 'name'.(©–ŽÀúÿÿÿÿ
+7python:S125ä"Remove this commented out code.(ÿœÅ
+7python:S125†"Remove this commented out code.(…ô×»

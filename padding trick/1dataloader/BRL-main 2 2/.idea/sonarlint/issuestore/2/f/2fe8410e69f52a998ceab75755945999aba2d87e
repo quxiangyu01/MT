@@ -1,0 +1,23 @@
+
+“python:S1192ğ"uDefine a constant instead of duplicating this literal '../../envs/wmt14ende_standford_mosesbpe37k/val.en.id' 3 times.(œ¨×şøÿÿÿÿ
+”python:S1192í"{Define a constant instead of duplicating this literal '../../envs/wmt14ende_standford_mosesbpe37k/bpe.share.37000' 4 times.(ëƒêó
+python:S1192ñ"uDefine a constant instead of duplicating this literal '../../envs/wmt14ende_standford_mosesbpe37k/val.de.id' 3 times.(²“íì
+fpython:S5797×"HReplace this expression; used as a condition it will always be constant.(±·²ùÿÿÿÿ
+dpython:S2208"GImport only needed names or import the module and then use its members.(ó¼¬úùÿÿÿÿ
+_python:S2208"GImport only needed names or import the module and then use its members.(ÖƒíŒ
+^python:S2208"GImport only needed names or import the module and then use its members.(Ü¡2
+;python:S125!"Remove this commented out code.(—ó½úÿÿÿÿ
+6python:S125N"Remove this commented out code.(šÕû¨
+npython:S117¾"VRename this local variable "Delta" to match the regular expression ^[_a-z][a-z0-9_]*$.(á²¨Ò
+xpython:S117À"[Rename this local variable "Lagrangian" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç÷•”üÿÿÿÿ
+epython:S117›"MRename this parameter "Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª†µÓ
+kpython:S117¯"SRename this local variable "Qt" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ„¤¹
+7python:S125¥"Remove this commented out code.(üëÓ¿
+7python:S125¨"Remove this commented out code.(ª¡Â¾
+7python:S125±"Remove this commented out code.(¥ïíó
+<python:S125¸"Remove this commented out code.(ª¸Ğàûÿÿÿÿ
+Bpython:S1481Ì")Remove the unused local variable "ratio".(°’¨
+7python:S125ò"Remove this commented out code.(ÃÓôÅ
+3python:S1700Ö"Rename field "record"(®²šåúÿÿÿÿ
+cpython:S107ì"KFunction "main" has 26 parameters, which is greater than the 13 authorized.(ê®ñÔ
+>python:S125˜"Remove this commented out code.(ÂĞ®¥8­ªëáâ0

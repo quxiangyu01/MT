@@ -1,0 +1,17 @@
+
+_python:S2208"GImport only needed names or import the module and then use its members.(Á²ïÆ
+dpython:S2208"GImport only needed names or import the module and then use its members.(¨†»ûúÿÿÿÿ
+upython:S117"YRename this local variable "X_tensor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕâÓûÿÿÿÿ
+upython:S117"YRename this local variable "Y_tensor" to match the regular expression ^[_a-z][a-z0-9_]*$.(«ÿ‰ÿÿÿÿÿ
+6python:S125%"Remove this commented out code.(ÃÓôÅ
+6python:S1259"Remove this commented out code.(ÃÓôÅ
+Bpython:S1481e"%Remove the unused local variable "t".(Üå¤ùÿÿÿÿ
+Bpython:S1481n"%Remove the unused local variable "t".(‹›È¨ÿÿÿÿÿ
+lpython:S117s"PRename this parameter "Node" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸ôØŸÿÿÿÿÿ
+Epython:S1481”",Remove the unused local variable "new_node".(î¯ŞÃ
+qpython:S3776s"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(¸ôØŸÿÿÿÿÿ
+7python:S125‹"Remove this commented out code.(¸•ó
+spython:S117»"VRename this local variable "Y_len" to match the regular expression ^[_a-z][a-z0-9_]*$.(•±Ñ±ÿÿÿÿÿ
+7python:S125Ÿ"Remove this commented out code.(–Ò‚
+<python:S125²"Remove this commented out code.(¦Îôıÿÿÿÿ
+<python:S125Ì"Remove this commented out code.(åããÛøÿÿÿÿ

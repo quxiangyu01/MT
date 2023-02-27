@@ -1,0 +1,21 @@
+
+mpython:S5797×"HReplace this expression; used as a condition it will always be constant.(±·²ùÿÿÿÿ8½¾Ãáâ0
+dpython:S2208"GImport only needed names or import the module and then use its members.(Ş‚¢òıÿÿÿÿ
+_python:S2208"GImport only needed names or import the module and then use its members.(ÖƒíŒ
+epython:S2208"GImport only needed names or import the module and then use its members.(Ü¡28‚§Æáâ0
+Bpython:S125"Remove this commented out code.(£çñøÿÿÿÿ8ÇÇÆáâ0
+Bpython:S125!"Remove this commented out code.(—ó½úÿÿÿÿ8½¾Ãáâ0
+=python:S125N"Remove this commented out code.(šÕû¨8½¾Ãáâ0
+upython:S117¾"VRename this local variable "Delta" to match the regular expression ^[_a-z][a-z0-9_]*$.(á²¨Ò8½¾Ãáâ0
+python:S117À"[Rename this local variable "Lagrangian" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç÷•”üÿÿÿÿ8¾¾Ãáâ0
+lpython:S117›"MRename this parameter "Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª†µÓ8¾¾Ãáâ0
+rpython:S117¯"SRename this local variable "Qt" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ„¤¹8¾¾Ãáâ0
+>python:S125¥"Remove this commented out code.(üëÓ¿8¾¾Ãáâ0
+>python:S125¨"Remove this commented out code.(ª¡Â¾8¾¾Ãáâ0
+>python:S125±"Remove this commented out code.(¥ïíó8¾¾Ãáâ0
+Cpython:S125¸"Remove this commented out code.(ª¸Ğàûÿÿÿÿ8¾¾Ãáâ0
+Npython:S1481Ì")Remove the unused local variable "ratio".(¾”˜åøÿÿÿÿ8¾¾Ãáâ0
+>python:S125ò"Remove this commented out code.(ÃÓôÅ8¾¾Ãáâ0
+:python:S1700Ö"Rename field "record"(®²šåúÿÿÿÿ8¾¾Ãáâ0
+jpython:S107ì"KFunction "main" has 26 parameters, which is greater than the 13 authorized.(ê®ñÔ8¾¾Ãáâ0
+>python:S125˜"Remove this commented out code.(ÂĞ®¥8Ì·Éáâ0

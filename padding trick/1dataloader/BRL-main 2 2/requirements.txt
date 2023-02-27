@@ -1,0 +1,54 @@
+# the following setup works in my machine which uses Ubuntu 1.8
+
+# TODO: remove tensorflow as a dependency
+# the current version of stable_baselines has used API deprecated in tf2. CUDA 10.0/9 is needed.
+# tf is only used for logging so cpu-only version is enough. Better to install this package first otherwise it may screw up other packages
+tensorflow==1.15  #conda install tensorflow=1.15
+
+matplotlib  # pip install matplotlib
+pandas  # pip install pandas
+tqdm  # pip install tqdm
+gitpython  # pip install gitpython
+torch==1.9.0  # pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+gym==0.15.4  # pip install gym==0.15.4  # https://github.com/openai/gym
+
+# for value learning
+datasets>=1.8.0 # pip install datasets
+pandarallel # pip install pandarallel -i https://pypi.tuna.tsinghua.edu.cn/simple
+scikit-learn # pip install -U scikit-learn
+transformers # pip install transformers
+pytorch_transformers # pip install pytorch_transformers
+# if you meet OSError: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.21' not found #1001
+# https://github.com/pyg-team/pytorch_geometric/issues/1001
+# not necessary at the moment
+
+
+#######################
+# environment domains
+#######################
+
+# machine translation
+sacrebleu==1.5.1 # pip install sacrebleu==1.5.1
+youtokentome  # pip install youtokentome
+nltk #pip install nltk # python # import nltk # nltk.download('punkt')
+jieba #pip install jieba
+subword-nmt # git clone https://github.com/rsennrich/subword-nmt # cd subword-nmt # pip install -e .
+
+# abstractive summarization
+pyrouge #pip install -U git+https://github.com/pltrdy/pyrouge
+files2rouge # git clone https://github.com/pltrdy/files2rouge.git   # cd files2rouge # python setup_rouge.py # python setup.py install
+java # sudo apt-get install default-jre  # (replace apt-get with the installation tool of your own OS)
+
+# locomotion control
+# roboschool  #=1.0.48 https://github.com/openai/roboschool (switched to pybullet-gym now)
+# pybulletgym==0.1 # https://github.com/benelot/pybullet-gym
+# OpenGL=3.1.0  # http://pyopengl.sourceforge.net/
+
+
+#######################
+# third-party baselines
+#######################
+
+fairseq # git clone https://github.com/pytorch/fairseq # cd fairseq # pip install --editable ./
+tensor2tensor # pip install tensor2tensor --user # https://github.com/tensorflow/tensor2tensor
+# stable_baselines==2.9.0  # https://github.com/Stable-Baselines-Team/stable-baselines

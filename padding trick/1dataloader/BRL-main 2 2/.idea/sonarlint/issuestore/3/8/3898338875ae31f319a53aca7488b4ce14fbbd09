@@ -1,0 +1,17 @@
+
+_python:S2208"GImport only needed names or import the module and then use its members.(Á²ïÆ
+Epython:S1481¬"'Remove the unused local variable "len".(§¿¹Õüÿÿÿÿ
+npython:S117¥"QRename this parameter "V_max" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÖÒÜùÿÿÿÿ
+upython:S117í"XRename this local variable "V_total" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ§€¸øÿÿÿÿ
+mpython:S1542¤"ORename function "packing1D" to match the regular expression ^[a-z_][a-z0-9_]*$.(ôï©Şüÿÿÿÿ
+Ipython:S1481í"+Remove the unused local variable "V_total".(Ÿ§€¸øÿÿÿÿ
+rpython:S3776¤"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(ôï©Şüÿÿÿÿ
+[python:S112ã">Replace this generic exception class with a more specific one.(¯èÄ§ıÿÿÿÿ
+»python:S1515ù"œAdd a parameter to the parent lambda function and use variable "weight" as its default value; The value of "weight" might change at the next loop iteration.(ÚËô„øÿÿÿÿ
+npython:S117©"QRename this parameter "V_max" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÖÒÜùÿÿÿÿ
+ppython:S117ò"XRename this local variable "V_total" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨°Ê
+hpython:S1542¨"ORename function "packing2D" to match the regular expression ^[a-z_][a-z0-9_]*$.(«…—Ô
+Dpython:S1481ò"+Remove the unused local variable "V_total".(¨°Ê
+mpython:S3776¨"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(«…—Ô
+[python:S112è">Replace this generic exception class with a more specific one.(¯èÄ§ıÿÿÿÿ
+¶python:S1515ÿ"œAdd a parameter to the parent lambda function and use variable "weight" as its default value; The value of "weight" might change at the next loop iteration.(Îû¿
