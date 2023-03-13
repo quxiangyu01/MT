@@ -1,50 +1,48 @@
 import torch
 import pandas as pd
 from brl.utils import *
-import time
-import random
 
 
 class Dataset:
     def __init__(
-            self,
-            src_tok,
-            trg_tok,
-            src_train_fname,
-            trg_train_fname,
-            src_valid_fname,
-            trg_valid_fname,
-            src_test_fname,
-            trg_test_fname,
-            packed_type,
+        self,
+        src_tok,
+        trg_tok,
+        src_train_fname,
+        trg_train_fname,
+        #src_valid_fname,
+        #trg_valid_fname,
+        #src_test_fname,
+        #trg_test_fname,
+        packed_type,
     ):
         self.src_tok = src_tok
         self.trg_tok = trg_tok
 
         self.src_train_fname = src_train_fname
         self.trg_train_fname = trg_train_fname
-        self.src_valid_fname = src_valid_fname
-        self.trg_valid_fname = trg_valid_fname
-        self.src_test_fname = src_test_fname
-        self.trg_test_fname = trg_test_fname
+        #self.src_valid_fname = None  # src_valid_fname
+        #self.trg_valid_fname = None  # trg_valid_fname
+        #self.src_test_fname = None  # src_test_fname
+        #self.trg_test_fname = None  # trg_test_fname
         self.packed_type = packed_type
 
         self.max_len = 1024
+        self.avg_num_tokens_per_batch = None
 
     def setup(self, train=True, valid=True, test=True):
-        if train:
-            self.train_df = self.read_id(self.src_train_fname,
-                                         self.trg_train_fname)
-        if valid:
-            self.valid_df = self.read_id(self.src_valid_fname,
-                                         self.trg_valid_fname)
-        if test:
-            self.test_df = self.read_id(self.src_test_fname,
-                                        self.trg_test_fname)
+        self.train_df = self.read_id(self.src_train_fname, self.trg_train_fname)
+
+        #if valid:
+        #    self.valid_df = self.read_id(self.src_valid_fname,
+        #                                 self.trg_valid_fname)
+        #if test:
+        #    self.test_df = self.read_id(self.src_test_fname,
+        #                                self.trg_test_fname)
 
     def read_id(self, src_fname, trg_fname):
-        src = open(src_fname).read().strip().split('\n')
-        trg = open(trg_fname).read().strip().split('\n')
+        src = open(src_fname).read().strip().split('\n')[:200]
+        trg = open(trg_fname).read().strip().split('\n')[:200]
 
         src = list(map(lambda s: list(map(int, [self.src_tok.bos_id] + s.split() + [self.src_tok.eos_id])), src))
         trg = list(map(lambda s: list(map(int, [self.src_tok.bos_id] + s.split() + [self.src_tok.eos_id])), trg))
@@ -74,8 +72,12 @@ class Dataset:
                 batch_idx = batch_idx[-1:]
                 src_max = sl
                 trg_max = tl
-        batch_idxs.append(batch_idx)
-        batch_samples.append(len(batch_idx) * max(src_max, trg_max))
+
+        assert len(batch_idx) * src_max <= batch_size or len(batch_idx) * trg_max <= batch_size
+        # batch_idxs.append(batch_idx)
+        if len(batch_idx) * src_max == batch_size or len(batch_idx) * trg_max == batch_size:
+            batch_idxs.append(batch_idx)
+            batch_samples.append(len(batch_idx) * max(src_max, trg_max))
         return batch_idxs, batch_samples
 
     def packed_method(self, group, src_lens, trg_lens):
@@ -184,6 +186,8 @@ class Dataset:
         get_stats(src_lens, 'src', *stats_src)
         get_stats(trg_lens, 'trg', *stats_trg)
 
+        self.avg_num_tokens_per_batch = rv_num_toks_trg.mean()
+
         if verbose:
             print('')
             for rv in stats_src: print(rv)
@@ -194,6 +198,9 @@ class Dataset:
             print('')
         return stats_src, stats_trg
 
+
+
+
     def train_dataloader(self, batch_size, device):
         df = self.train_df.sample(frac=1).reset_index(drop=True)
         src_lens = df[self.src_tok.lang].map(len)
@@ -201,7 +208,7 @@ class Dataset:
         print('source max length:', max(src_lens), 'source min length:', min(src_lens))
         print('target max length:', max(trg_lens), 'target min length:', min(trg_lens))
 
-        batch_groups, batch_samples = self.generate_groups(src_lens, trg_lens, batch_size)
+        batch_groups, samples= self.generate_groups(src_lens, trg_lens, batch_size)
 
         # bin packing
         df, batch_idxs = self.bin_packing(df, src_lens, trg_lens, batch_groups)
@@ -215,34 +222,9 @@ class Dataset:
             print(rv)
         print('')
 
-        return batch_samples, torch.utils.data.DataLoader(
+        return torch.utils.data.DataLoader(
             df.values,
             batch_sampler=batch_idxs,
-            collate_fn=collate_fn(device, self),
-            pin_memory=True,
-        )
-
-    def valid_dataloader(self, batch_size, device):
-        df = self.valid_df
-        src_lens = df[self.src_tok.lang].map(len) + 2
-        trg_lens = df[self.trg_tok.lang].map(len) + 2
-        batch_groups, batch_samples = self.generate_groups(src_lens, trg_lens, batch_size)
-        return batch_samples, torch.utils.data.DataLoader(
-            df.values,
-            batch_sampler=batch_groups,
-            collate_fn=collate_fn(device, self),
-            pin_memory=True,
-        )
-
-    def test_dataloader(self, batch_size, device):
-        df = self.test_df
-        src_lens = df[self.src_tok.lang].map(len) + 2
-        trg_lens = df[self.trg_tok.lang].map(len) + 2
-        batch_groups, batch_samples = self.generate_groups(src_lens, trg_lens, batch_size)
-
-        return batch_samples, torch.utils.data.DataLoader(
-            df.values,
-            batch_sampler=batch_groups,
             collate_fn=collate_fn(device, self),
             pin_memory=True,
         )
@@ -266,6 +248,36 @@ class Dataset:
         idss = [l[:l.index(tok.eos_id)] if tok.eos_id in l else l for l in idss]
         return idss
 
+    def batch_idxs(self, src_lens, trg_lens, bp_bucket_size):
+        """
+        src_lens: src sentence lengths (list or pd.Series) including bos and eos
+        trg_lens: trg sentence lengths (list or pd.Series) including bos and eos
+        bp_bucket_size: number of maximum tokens in a BP batch
+        """
+        batch_idxs = []
+        batch_idx = []
+        src_max = trg_max = 0
+        for i, (sl, tl) in enumerate(zip(src_lens, trg_lens)):
+            if sl > self.max_len or tl > self.max_len or sl > bp_bucket_size or tl > bp_bucket_size:
+                continue
+            src_max = max(src_max, sl)
+            trg_max = max(trg_max, tl)
+            batch_idx.append(i)
+            if len(batch_idx) * src_max > bp_bucket_size or len(batch_idx) * trg_max > bp_bucket_size:
+                batch_idxs.append(batch_idx[:-1])
+                batch_idx = batch_idx[-1:]
+                src_max = sl
+                trg_max = tl
+
+        # batch_idx should now contain a residual batch whose size is smaller than or equal to the bucket size,
+        # unless the size of the residual batch equals bucket size, we will throw away this residual batch because
+        # it may lead to a gradient update with high variance (= of low quality)
+        assert len(batch_idx) * src_max <= bp_bucket_size or len(batch_idx) * trg_max <= bp_bucket_size
+        # batch_idxs.append(batch_idx)
+        if len(batch_idx) * src_max == bp_bucket_size or len(batch_idx) * trg_max == bp_bucket_size:
+            batch_idxs.append(batch_idx)
+
+        return batch_idxs
 
 class collate_fn:
     def __init__(self, device, dataset):
